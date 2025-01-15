@@ -14,9 +14,9 @@ export default function useOrder(){
         }
      
     }
-    console.log(order);
     
     return {
-        addOrder
+        addOrder,
+        order
     }
 }
