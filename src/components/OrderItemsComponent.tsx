@@ -1,10 +1,12 @@
-import type { OrderItem } from "../types"
+import type { MenuItem, OrderItem } from "../types"
 import { formatCurrency } from "../helpers"
 type OrderItemProps = {
     order : OrderItem[]
+    deleteOrder: (item: MenuItem['id']) => void
+
 }
 
-export default function OrderItemsComponent({order}:OrderItemProps) {
+export default function OrderItemsComponent({order,deleteOrder}:OrderItemProps) {
   return (
     <div>
         <h1 className="font-black text-4xl">Consumo</h1>
@@ -22,6 +24,7 @@ export default function OrderItemsComponent({order}:OrderItemProps) {
                     <p className="font-black ">Cantidad: {item.quantity} - {formatCurrency(item.quantity * item.price)} </p>
                   </div>
                   <button 
+                  onClick={() => deleteOrder(item.id)}
                   className="bg-red-600 text-white rounded-full h-8 w-8"
                   >
                     X

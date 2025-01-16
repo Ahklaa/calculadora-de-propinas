@@ -3,7 +3,7 @@ import MenuItem from './components/MenuItem';
 import useOrder from './hooks/useOrder';
 import OrderItemsComponent from './components/OrderItemsComponent';
 function App() {
-  const {order,addOrder} = useOrder()
+  const {order,addOrder,deleteOrder} = useOrder()
   return (
     <>
         <header className="bg-purple-400 py-8">
@@ -25,6 +25,8 @@ function App() {
           <div className='border border-dashed border-slate-400 space-y-10 p-5 rounded-lg '>
               <OrderItemsComponent
                 order={order}
+                deleteOrder = {deleteOrder}
+
               />
           </div>
 

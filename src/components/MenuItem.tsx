@@ -9,7 +9,7 @@ export default function MenuItem({item, addOrder} : MenuItemProps) {
   return (
     <>
       <button
-      className="border-2 border-r-2 border-purple-600 flex justify-between w-full hover:bg-purple-300 p-3"
+      className="border-2 border-r-2 rounded-lg border-purple-600 flex justify-between w-full hover:bg-purple-300 p-3"
       onClick = {() => addOrder(item)}
       >
         <p>{item.name}</p>
