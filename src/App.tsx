@@ -3,8 +3,9 @@ import MenuItem from './components/MenuItem';
 import useOrder from './hooks/useOrder';
 import OrderItemsComponent from './components/OrderItemsComponent';
 import OrderTotals from './components/OrderTotals';
+import TipPorcentage from './components/TipPorcentage';
 function App() {
-  const {order,addOrder,deleteOrder} = useOrder()
+  const {order,tip,setTip,addOrder,deleteOrder,placeOrder} = useOrder()
   return (
     <>
         <header className="bg-purple-400 py-8">
@@ -24,15 +25,26 @@ function App() {
             </div>
           </div>
           <div className='border border-dashed border-slate-400 space-y-10 p-5 rounded-lg '>
-              <OrderItemsComponent
+            {order.length ? (
+              <>
+                <OrderItemsComponent
                 order={order}
                 deleteOrder = {deleteOrder}
 
               />
-
+              <TipPorcentage 
+                setTip = {setTip}
+              />
               <OrderTotals
                 order={order}
+                tip ={tip}
+                placeOrder={placeOrder}
               />
+              </>
+            ) 
+            : <p className="text-center">No hay ordenes</p>
+            }
+              
           </div>
 
         </main>

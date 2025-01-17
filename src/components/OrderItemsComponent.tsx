@@ -11,10 +11,7 @@ export default function OrderItemsComponent({order,deleteOrder}:OrderItemProps) 
     <div>
         <h1 className="font-black text-4xl">Consumo</h1>
         <div className="space-y-5 mt-10">
-          {order.length === 0 
-          ? <p className="text-center">No hay ordenes</p>
-          : (
-              order.map(item => (
+          {order.map(item => (
                 <div 
                 key={item.id}
                 className="flex justify-between border-t border-gray-200 p-5 last-of-type:border-b items-center"
@@ -31,7 +28,7 @@ export default function OrderItemsComponent({order,deleteOrder}:OrderItemProps) 
                   </button>
                 </div>
               ))
-          )}
+          }
         </div>
     </div>
   )
